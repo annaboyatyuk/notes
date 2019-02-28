@@ -1,0 +1,36 @@
+{
+  "name": "notes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon index.js",
+    "test": "jest --verbose --coverage",
+    "lint": "eslint",
+    "babel-node": "babel-node --presets=/*a*/ --ignore='foo|bar|baz'"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annaboyatyuk/notes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/annaboyatyuk/notes/issues"
+  },
+  "homepage": "https://github.com/annaboyatyuk/notes#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.3.4",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.1.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
