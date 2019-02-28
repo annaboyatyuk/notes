@@ -2,6 +2,9 @@
 
 require('dotenv').config();
 
-require('babel-register');
+require('@babel/register');
 
-require('./server/src/api.js');
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_URI);
+
+require('./server/src/app.js').start(process.env.PORT);

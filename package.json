@@ -27,10 +27,21 @@
   },
   "homepage": "https://github.com/annaboyatyuk/notes#readme",
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
+    "@babel/register": "^7.0.0",
     "babel-jest": "^24.1.0",
-    "babel-preset-env": "^1.7.0"
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "eslint": "^5.14.1",
+    "express": "^4.16.4",
+    "jest": "^24.1.0",
+    "mockgoose": "^8.0.1",
+    "mongoose": "^5.4.16",
+    "morgan": "^1.9.1",
+    "require-dir": "^1.2.0",
+    "superagent": "^4.1.0",
+    "uuid": "^3.3.2"
   }
 }
