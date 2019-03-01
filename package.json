@@ -7,13 +7,11 @@
     "start": "node index.js",
     "watch": "nodemon index.js",
     "test": "jest --verbose --coverage",
-    "lint": "eslint",
-    "babel-node": "babel-node --presets=/*a*/ --ignore='foo|bar|baz'"
+    "test-watch": "jest --watchAll",
+    "lint": "eslint"
   },
   "jest": {
-    "transform": {
-      "^.+\\.jsx?$": "babel-jest"
-    }
+    "testEnvironment": "node"
   },
   "repository": {
     "type": "git",
@@ -42,5 +40,6 @@
     "morgan": "^1.9.1",
     "require-dir": "^1.2.0",
     "superagent": "^4.1.0",
+    "supertest": "^3.4.2"
   }
 }
