@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "watch": "nodemon index.js",
-    "test": "jest --verbose --coverage",
+    "test": "jest --verbose --coverage --forceExit",
     "test-watch": "jest --watchAll",
     "lint": "eslint"
   },
