@@ -8,9 +8,9 @@ import {Mockgoose} from 'mockgoose';
 import mongoose from 'mongoose';
 
 /*do i need this?
+*/
 // WARNING: Travis runs slow due to Mongo, give long timeout
 jest.setTimeout(60000);
-*/
 
 const mockgoose = new Mockgoose(mongoose);
 const mockRequest = supertest(server);
