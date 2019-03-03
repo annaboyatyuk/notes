@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open --mode development",
+    "client": "webpack-dev-server --open --mode development",
+    "server": "nodemon index.js",
+    "start": "$(npm bin)/concurrently 'npm run server' 'npm run client'",
     "watch": "nodemon index.js",
     "test": "jest --verbose --coverage --forceExit",
     "test-watch": "jest --watchAll",
@@ -33,6 +35,7 @@
     "@babel/register": "^7.0.0",
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
+    "concurrently": "^4.1.0",
     "cors": "^2.8.5",
     "css-loader": "^2.1.0",
     "dotenv": "^6.2.0",
