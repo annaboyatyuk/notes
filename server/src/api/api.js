@@ -18,7 +18,7 @@ let sendJSON = (res, data) => {
 
 // ping pong get a general response
 router.get('/', (req, res) => {
-  res.write('ldskjf');
+  res.write('HELLOOOO');
   res.end();
 });
 

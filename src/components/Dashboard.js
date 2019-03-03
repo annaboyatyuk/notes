@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 
 import NoteForm from './notes/NoteForm.js';
 import NoteItem from './notes/NoteItem.js';
 
-// import {noteCreate, noteUpdate, noteDelete} from '../store/notes.js';
+import {noteCreate, noteUpdate, noteDelete} from '../store/notes.js';
 
 class Dashboard extends Component {
 
@@ -15,28 +15,28 @@ class Dashboard extends Component {
         <h1>hello</h1>
         <h3>add some notes</h3>
 
-        <NoteForm />
+        <NoteForm onComplete={this.props.noteCreate} buttonText='SUBMIT'/>
 
-        <NoteItem />
+        <NoteItem onComplete={this.props.noteUpdate} deleteNote={this.props.noteDelete}/>
       
       </React.Fragment>
     );
   }
 }
 
-// const mapStateToProps = state => ({
-//   note: state.notesState,
-// });
+const mapStateToProps = state => ({
+  note: state.notesState,
+});
 
-// const mapDispatchToProps = dispatch => ({
-//   noteCreate: note => dispatch(noteCreate(note)),
-//   noteUpdate: note => dispatch(noteUpdate(note)),
-//   noteDelete: note => dispatch(noteDelete(note)),
-// });
+const mapDispatchToProps = dispatch => ({
+  noteCreate: note => dispatch(noteCreate(note)),
+  noteUpdate: note => dispatch(noteUpdate(note)),
+  noteDelete: note => dispatch(noteDelete(note)),
+});
 
-// export default connect(
-//   mapStateToProps,
-//   mapDispatchToProps,
-// )(Dashboard);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Dashboard);
 
-export default Dashboard;
+// export default Dashboard;
