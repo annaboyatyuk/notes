@@ -10,7 +10,7 @@ const store = createAppStore();
 export default class App extends Component {
   render() {
     return (
-      <Provider>
+      <Provider store={store}>
         <BrowserRouter>
 
           <Route exact path='/' component={Dashboard} />
