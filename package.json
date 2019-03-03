@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "client": "webpack-dev-server --open --mode development",
-    "server": "nodemon index.js",
-    "start": "$(npm bin)/concurrently 'npm run server' 'npm run client'",
+    "start": "node index.js",
     "watch": "nodemon index.js",
     "test": "jest --verbose --coverage --forceExit",
     "test-watch": "jest --watchAll",
