@@ -7,7 +7,7 @@
     "client": "webpack-dev-server --open --mode development",
     "watch": "nodemon index.js",
     "start": "concurrently --kill-others-on-fail 'npm run watch' 'npm run client'",
-    "heroku-postbuild": "npm install && npm start",
+    "heroku-postbuild": "npm install",
     "test": "jest --verbose --coverage --forceExit",
     "test-watch": "jest --watchAll",
     "lint": "eslint"
@@ -38,7 +38,6 @@
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-import": "^1.11.0",
-    "concurrently": "^4.1.0",
     "cors": "^2.8.5",
     "css-loader": "^2.1.0",
     "dotenv": "^6.2.0",
@@ -66,5 +65,8 @@
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1"
+  },
+  "dependencies": {
+    "concurrently": "^4.1.0"
   }
 }
