@@ -4,12 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "client": "webpack-dev-server --open --mode development",
-    "start": "$(npm bin)/concurrently --kill-others-on-fail 'npm run watch' 'npm run client'",
-    "watch": "nodemon index.js",
+    "client-install": "npm install --prefix client",
+    "client": "webpack-dev-server --open --mode development --prefix client",
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "dev": "concurrently --kill-others-on-fail 'npm run server' 'npm run client'",
+    "watch": "webpack-dev-server --open --mode development",
     "test": "jest --verbose --coverage --forceExit",
     "test-watch": "jest --watchAll",
-    "lint": "eslint"
+    "lint": "eslint",
+    "heroku-postbuild":
+      "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "proxy": "http://localhost:3005/",
   "jest": {
