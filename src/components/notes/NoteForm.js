@@ -42,6 +42,8 @@ export default class NoteForm extends Component {
 
         <input className='submitButton' type='submit' value={this.props.buttonText}/>
 
+
+
       </form>
     );
   }
