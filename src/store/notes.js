@@ -27,7 +27,8 @@ export default function reducer(state = initialState, action) {
 // Action Creators
 
 const ENV = {};
-ENV.apiUrl = 'https://notereaction.herokuapp.com';
+// ENV.apiUrl = 'https://notereaction.herokuapp.com';
+ENV.apiUrl = 'http://localhost:3005';
 
 export const noteCreate = note => dispatch => {
   superagent.post(`${ENV.apiUrl}/api/v1/notes`, note)
