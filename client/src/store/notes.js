@@ -1,6 +1,5 @@
 import superagent from 'superagent';
 
-// import notes from "../../server/src/models/notes";
 
 // Actions
 const CREATE = 'NOTE_CREATE';
@@ -26,12 +25,18 @@ export default function reducer(state = initialState, action) {
 
 // Action Creators
 
-const ENV = {};
-// ENV.apiUrl = 'https://notereaction.herokuapp.com';
-ENV.apiUrl = 'http://localhost:3005';
+export const notesGetAll = () => dispatch => {
+  superagent.get(`${process.env.API_URL}/api/v1/notes`)
+    .then(res => {
+      dispatch({
+        type: GETALL,
+        payload: res.body,
+      });
+    });
+};
 
 export const noteCreate = note => dispatch => {
-  superagent.post(`${ENV.apiUrl}/api/v1/notes`, note)
+  superagent.post(`${process.env.API_URL}/api/v1/notes`, note)
     .then(res => {
       dispatch ({
         type: CREATE,
@@ -42,7 +47,7 @@ export const noteCreate = note => dispatch => {
 
 export const noteUpdate = note => dispatch => {
   let id = note.id;
-  superagent.put(`${ENV.apiUrl}/api/v1/notes/${id}`, note)
+  superagent.put(`${process.env.API_URL}/api/v1/notes/${id}`, note)
     .then(res => {
       dispatch({
         type: UPDATE,
@@ -52,19 +57,9 @@ export const noteUpdate = note => dispatch => {
 };
 
 export const noteDelete = note => dispatch => {
-  superagent.delete(`${ENV.apiUrl}/api/v1/notes/${note._id}`)
+  superagent.delete(`${process.env.API_URL}/api/v1/notes/${note._id}`)
     .then(dispatch({
       type: DELETE,
       payload: note,
     }));
-};
-
-export const notesGetAll = () => dispatch => {
-  superagent.get(`${ENV.apiUrl}/api/v1/notes`)
-    .then(res => {
-      dispatch({
-        type: GETALL,
-        payload: res.body,
-      });
-    });
 };

@@ -1,4 +1,11 @@
+
+require('dotenv').config();
+
+const {DefinePlugin} = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+
+const production = process.env.NODE_ENV === 'production';
+
 module.exports = {
   module: {
     rules: [
@@ -60,6 +67,13 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: './public/index.html',
       filename: './index.html',
+    }),
+    new DefinePlugin({
+      'process.env': {
+        API_URL: JSON.stringify(process.env.API_URL),
+        USER_API_URL: JSON.stringify(process.env.USER_API_URL),
+      },
+      PRODUCTION: production,
     }),
   ],
 };
