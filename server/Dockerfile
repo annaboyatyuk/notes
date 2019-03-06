@@ -1,5 +1,5 @@
 # Use a lighter version of Node as a parent image
-FROM mhart/alpine-node:8.11.4
+FROM node:10-alpine
 
 # Set the working directory to /api
 WORKDIR /server
@@ -14,7 +14,7 @@ RUN npm install
 COPY . /server/
 
 # Make port 80 available to the world outside this container
-EXPOSE 80
+EXPOSE 3005
 
 # Run the app when the container launches
 CMD ["npm", "start"]
